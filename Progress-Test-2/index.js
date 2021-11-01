@@ -16,9 +16,11 @@ search.addEventListener('keyup', (e) => {
 
 const loadCharacters = async() => {
     try {
-        const res = await fetch('http://hp-api.herokuapp.com/api/characters');
-        hpCharacters = await res.json();
-        displayCharacters(hpCharacters);
+        const res = await fetch('https://tobitheme.net/api/characters.json');
+        const responseJSON = await res.json()
+        hpCharacters = responseJSON.data;
+        displayCharacters(responseJSON.data);
+        console.log(responseJSON.data);
     } catch (err) {
         console.error(err);
     }
